@@ -1,2 +1,0 @@
-time="2021-04-18 09:30:08" level=info Agent="ApiPOST Runtime +https://www.apipost.cn" DataSize=196 HostName=DESKTOP-Q7TAATS IP="::1" Method=POST Path=/api/v1/login SpendTime="100 ms" status=200
-time="2021-04-18 09:30:46" level=info Agent="ApiPOST Runtime +https://www.apipost.cn" DataSize=29 HostName=DESKTOP-Q7TAATS IP="::1" Method=PUT Path=/api/v1/user/18 SpendTime="106 ms" status=200

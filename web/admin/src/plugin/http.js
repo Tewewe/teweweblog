@@ -1,4 +1,3 @@
-
 import Vue from 'vue'
 import axios from 'axios'
 
@@ -13,4 +12,5 @@ axios.interceptors.request.use(config => {
 })
 
 Vue.prototype.$http = axios
+
 export { Url }

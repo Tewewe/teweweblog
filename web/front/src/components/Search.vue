@@ -11,7 +11,7 @@
           v-for="item in artList"
           :key="item.id"
           link
-          @click="$router.push(`detail/${item.ID}`)"
+          @click="$router.push(`/detail/${item.ID}`)"
         >
           <v-row no-gutters class="d-flex align-center">
             <v-col class="d-flex justify-center align-center ma-3" cols="1">
@@ -32,16 +32,9 @@
               <v-card-text class="d-flex align-center">
                 <div class="d-flex align-center">
                   <v-icon class="mr-1" small>{{'mdi-calendar-month'}}</v-icon>
-                  <span>{{item.CreatedAt | dateformat('YYYY-MM-DD HH:MM')}}</span>
+                  <span>{{item.CreatedAt | dateformat('YYYY-MM-DD HH:SS')}}</span>
                 </div>
-                <div class="mx-4 d-flex align-center">
-                  <v-icon class="mr-1" small>{{'mdi-comment'}}</v-icon>
-                  <span>{{item.comment_count}}</span>
-                </div>
-                <div class="mx-1 d-flex align-center">
-                  <v-icon class="mr-1" small>{{'mdi-eye'}}</v-icon>
-                  <span>{{item.read_count}}</span>
-                </div>
+
               </v-card-text>
             </v-col>
           </v-row>
@@ -77,21 +70,13 @@
     methods: {
       // 获取文章列表
       async getArtList() {
-        const { data: res } = await this.$http.get(`article?pagesize=${this.pagesize}&pagenum=${this.pagenum}&title=${this.title}`, 
-  //       {params:{
-  //  title: this.title,
-  //         pagesize: this.queryParam.pagesize,
-  //         pagenum: this.queryParam.pagenum
-  //       }}
-        )
-  
+        const { data: res } = await this.$http.get(`/article?pagesize=${this.pagesize}&pagenum=${this.pagenum}&title=${this.title}`)
         this.artList = res.data
-        console.log('res.data: ', res.data)
         this.total = res.total
         this.isLoad = true
       }
     }
   }
   </script>
-  <style lang="">
+  <style>
   </style>

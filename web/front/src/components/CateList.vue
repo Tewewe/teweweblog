@@ -35,14 +35,6 @@
                     item.CreatedAt | dateformat('YYYY-MM-DD HH:SS')
                   }}</span>
                 </div>
-                <div class="mx-4 d-flex align-center">
-                  <v-icon class="mr-1" small>{{ 'mdi-comment' }}</v-icon>
-                  <span>{{ item.comment_count }}</span>
-                </div>
-                <div class="mx-1 d-flex align-center">
-                  <v-icon class="mr-1" small>{{ 'mdi-eye' }}</v-icon>
-                  <span>{{ item.read_count }}</span>
-                </div>
               </v-card-text>
             </v-col>
           </v-row>

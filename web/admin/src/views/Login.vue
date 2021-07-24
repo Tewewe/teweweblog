@@ -9,7 +9,10 @@
                 </a-form-model-item>
 
                 <a-form-model-item prop="password">
-                    <a-input v-model="formdata.password" placeholder="请输入密码" type="password">
+                    <a-input v-model="formdata.password" placeholder="请输入密码"
+                    type="password"
+                    v-on:keyup.enter="login"
+                    >
                         <a-icon slot="prefix" type="lock" style="color:rgba(0,0,0,.25)" />
                     </a-input>
                 </a-form-model-item>
@@ -58,10 +61,12 @@ export default {
       this.$refs.loginFormRef.resetFields()
     },
     login () {
-      this.$refs.loginFormRef.validate((valid) => {
+      this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return this.$message.error('输入非法数据，请重新输入')
-        const res = this.$http.post('login', this.formdata)
-        console.log(res)
+        const { data: res } = await this.$http.post('login', this.formdata)
+        if (res.status !== 200) return this.$message.error(res.message)
+        window.sessionStorage.setItem('token', res.token)
+        this.$router.push('/index')
       })
     }
   }
